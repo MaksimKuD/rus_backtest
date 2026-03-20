@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bybit-bot_ruslan/internal/logger"
 	"log"
 	"time"
 
@@ -11,6 +12,10 @@ import (
 )
 
 func main() {
+	logFile := logger.InitLogger()
+	defer logFile.Close()
+
+	log.Println("Bot started")
 
 	market := mdbybit.New()
 

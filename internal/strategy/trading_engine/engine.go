@@ -1,6 +1,9 @@
 package trading_engine
 
-import "bybit-bot_ruslan/internal/strategy"
+import (
+	"bybit-bot_ruslan/internal/strategy"
+	"log"
+)
 
 type Engine struct {
 	candles    []strategy.Candle
@@ -30,14 +33,12 @@ func (e *Engine) OnCandle(c strategy.Candle) strategy.Signal {
 	if !e.inPosition {
 
 		if last.Close > prev.Close {
-			e.inPosition = true
-			e.side = strategy.BUY
+			log.Printf("SIGNAL BUY | prev=%.2f last=%.2f", prev.Close, last.Close)
 			return strategy.BUY
 		}
 
 		if last.Close < prev.Close {
-			e.inPosition = true
-			e.side = strategy.SELL
+			log.Printf("SIGNAL SELL | prev=%.2f last=%.2f", prev.Close, last.Close)
 			return strategy.SELL
 		}
 

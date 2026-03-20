@@ -3,6 +3,7 @@ package bybit
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -32,12 +33,13 @@ type response struct {
 func (b *Bybit) GetCandles(symbol string, tf time.Duration) ([]strategy.Candle, error) {
 
 	url := fmt.Sprintf(
-		"https://api.bybit.com/v5/market/kline?category=linear&symbol=%s&interval=5&limit=10",
+		"https://api.bybit.com/v5/market/kline?category=linear&symbol=%s&interval=5&limit=1",
 		symbol,
 	)
 
 	resp, err := b.client.Get(url)
 	if err != nil {
+		log.Println("API ERROR:", err)
 		return nil, err
 	}
 
