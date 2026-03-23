@@ -1,0 +1,4 @@
+2026/03/23 15:41:01 main.go:19: 🚀 Bot started
+2026/03/23 15:41:16 bybit.go:48: Retry API... Get "https://api.bybit.com/v5/market/kline?category=linear&symbol=BTCUSDT&interval=5&limit=2": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+2026/03/23 15:41:36 main.go:19: 🚀 Bot started
+2026/03/23 15:41:51 bybit.go:48: Retry API... Get "https://api.bybit.com/v5/market/kline?category=linear&symbol=BTCUSDT&interval=5&limit=2": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

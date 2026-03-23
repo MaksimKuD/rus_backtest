@@ -26,16 +26,15 @@ func (m *MockExecutor) Execute(signal strategy.Signal, c strategy.Candle) {
 	switch signal {
 
 	case strategy.BUY:
-		log.Println("BUY at", c.Close)
+		log.Printf("ENTRY BUY | price=%.2f", c.Close)
 		m.logger.Log("BUY", c.Close)
 
 	case strategy.SELL:
-		log.Println("SELL at", c.Close)
+		log.Printf("ENTRY SELL | price=%.2f", c.Close)
 		m.logger.Log("SELL", c.Close)
 
 	case strategy.EXIT:
-		log.Println("EXIT at", c.Close)
+		log.Printf("EXIT | price=%.2f", c.Close)
 		m.logger.Log("EXIT", c.Close)
 	}
-
 }

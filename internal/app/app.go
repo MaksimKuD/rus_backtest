@@ -25,7 +25,6 @@ func New(
 	symbol string,
 	tf time.Duration,
 ) *App {
-
 	return &App{
 		market:   market,
 		exec:     exec,
@@ -42,8 +41,8 @@ func (a *App) Run() {
 		candles, err := a.market.GetCandles(a.symbol, a.tf)
 
 		if err != nil {
-			log.Println(err)
-			time.Sleep(a.tf)
+			log.Println("Market error:", err)
+			time.Sleep(10 * time.Second)
 			continue
 		}
 
